@@ -2,17 +2,17 @@ PATH
   remote: .
   specs:
     hiq (0.0.1)
-      stanford-core-nlp
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
-    bind-it (0.2.7)
-      rjb (~> 1.4.3)
     byebug (11.1.3)
     coderay (1.1.3)
     diff-lcs (1.5.0)
+    io-console (0.5.11)
+    irb (1.4.1)
+      reline (>= 0.3.0)
     method_source (1.0.0)
     parallel (1.21.0)
     parser (3.1.1.0)
@@ -22,8 +22,9 @@ GEM
       method_source (~> 1.0)
     rainbow (3.1.1)
     regexp_parser (2.2.1)
+    reline (0.3.1)
+      io-console (~> 0.5)
     rexml (3.2.5)
-    rjb (1.4.9)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
       rspec-expectations (~> 3.11.0)
@@ -49,8 +50,6 @@ GEM
     rubocop-ast (1.16.0)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
-    stanford-core-nlp (0.5.3)
-      bind-it (~> 0.2.7)
     unicode-display_width (2.1.0)
 
 PLATFORMS
@@ -59,6 +58,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   hiq!
+  irb
   pry
   rspec
   rubocop

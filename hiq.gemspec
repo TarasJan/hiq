@@ -13,8 +13,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.required_ruby_version = '>= 2.6.0'
 
-  s.add_dependency 'stanford-core-nlp'
-
+  s.add_development_dependency 'irb'
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'rspec'
