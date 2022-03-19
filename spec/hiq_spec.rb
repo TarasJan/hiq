@@ -33,12 +33,11 @@ describe Hiq do
         end
       end
 
-      context 'when provided with words the sum of whic is exceeding 22 syllables' do
-        it 'raises WordsCompositionError' do
+      context 'when there are more that 3 words' do
+        it 'raises TooManyWordsError' do
           expect do
-            Hiq.haiku(%w[friend calamity ability heterosexuality apple
-                         probability])
-          end.to raise_error(Hiq::WordsTooLongError)
+            Hiq.haiku(%w[friend calamity ability apple])
+          end.to raise_error(Hiq::TooManyWordsError)
         end
       end
     end

@@ -5,6 +5,13 @@ module Hiq
   class WordLengthError < StandardError
   end
 
+  # limiting number of words to 3
+  class TooManyWordsError < StandardError
+    def failure_message
+      'The API is currently limited to 3 words'
+    end
+  end
+
   # Exception for when one of the words is too long to fit into haiku
   class WordTooLongError < WordLengthError
     def failure_message

@@ -28,6 +28,7 @@ module Hiq
     end
 
     def ensure_word_length
+      raise TooManyWordsError if words.size > 3
       raise WordTooLongError if syllable_count.any? { |count| count > 7 }
       raise WordsTooLongError if syllable_count.sum > 22
     end
