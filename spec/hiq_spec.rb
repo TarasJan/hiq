@@ -19,36 +19,39 @@ describe Hiq do
     word.downcase.scan(/[^aeiouy][aeiouy][aeiouy][aeiouy][^aeiouy]/).size
   end
 
-  describe "#haiku" do
-    describe "errors" do
-      context "when provided with a too long word (ie. exceeding 7 syllables)" do
-        it "raises WordLengthError" do
-          expect { Hiq.haiku(["nonheterosexuality"]) }.to raise_error(Hiq::WordTooLongError)
+  describe '#haiku' do
+    describe 'errors' do
+      context 'when provided with a too long word (ie. exceeding 7 syllables)' do
+        it 'raises WordLengthError' do
+          expect { Hiq.haiku(['nonheterosexuality']) }.to raise_error(Hiq::WordTooLongError)
         end
       end
 
-      context "when provided with a two words exceeding 5 syllables" do
-        it "raises WordsCompositionError" do
-          expect { Hiq.haiku(["adaptability", "heterosexuality"]) }.to raise_error(Hiq::WordsCompositionError)
+      context 'when provided with a two words exceeding 5 syllables' do
+        it 'raises WordsCompositionError' do
+          expect { Hiq.haiku(%w[adaptability heterosexuality]) }.to raise_error(Hiq::WordsCompositionError)
         end
       end
 
-      context "when provided with words the sum of whic is exceeding 22 syllables" do
-        it "raises WordsCompositionError" do
-          expect { Hiq.haiku(["friend", "calamity", "ability", "heterosexuality", "apple", "probability"]) }.to raise_error(Hiq::WordsTooLongError)
+      context 'when provided with words the sum of whic is exceeding 22 syllables' do
+        it 'raises WordsCompositionError' do
+          expect do
+            Hiq.haiku(%w[friend calamity ability heterosexuality apple
+                         probability])
+          end.to raise_error(Hiq::WordsTooLongError)
         end
       end
     end
 
-    describe "haikus properties" do
-      context "simple haiku" do
-        it "has three lines" do
-          expect(Hiq.haiku(["apple", "waffle"]).count("\n")).to eql(2)
+    describe 'haikus properties' do
+      context 'simple haiku' do
+        it 'has three lines' do
+          expect(Hiq.haiku(%w[apple waffle]).count("\n")).to eql(2)
         end
 
-        it "follows 5-7-5 syllable composition" do
-          lines = Hiq.haiku(["apple", "waffle"]).split("\n").map { |l| l.split(" ") }
-          syllable_composition = lines.map { |l| l.map {|w| syllables(w) }.sum }
+        it 'follows 5-7-5 syllable composition' do
+          lines = Hiq.haiku(%w[apple waffle]).split("\n").map { |l| l.split(' ') }
+          syllable_composition = lines.map { |l| l.map { |w| syllables(w) }.sum }
 
           expect(syllable_composition).to eql([5, 7, 5])
         end
