@@ -17,11 +17,35 @@ module Hiq
     end
 
     def call
-      (target_syllable_length - line.map { |word| syllables(word) }.sum).times do
-        line << 'zen'
-      end
+      return line if syllable_gap_size.zero?
 
-      line
+      filled_line
+    end
+
+    private
+
+    def syllable_gap_size
+      target_syllable_length - line.map { |word| syllables(word) }.sum
+    end
+
+    def filled_line
+      return [fillers[target_syllable_length].sample] if line.empty?
+
+      [interpolated_fillers[target_syllable_length][syllable_gap_size].gsub('X', line.first)]
+    end
+
+    def interpolated_fillers
+      {
+        5 => { 4 => 'X of my joy fade' },
+        7 => { 6 => 'the sad facade of X torn' }
+      }
+    end
+
+    def fillers
+      {
+        5 => ['empty riverside', 'tears flow in the rain'],
+        7 => ['the vain wind of summer blows', 'gentle breeze upon a mountain']
+      }
     end
   end
 end

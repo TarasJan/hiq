@@ -7,18 +7,6 @@ describe Hiq do
     expect(Hiq::VERSION).to eql('0.0.1')
   end
 
-  def syllables(word)
-    word.downcase.scan(/[aeiouy]/).size - diphtongs(word) - triphtongs(word)
-  end
-
-  def diphtongs(word)
-    word.downcase.scan(/[^aeiouy][aeiouy][aeiouy][^aeiouy]/).size
-  end
-
-  def triphtongs(word)
-    word.downcase.scan(/[^aeiouy][aeiouy][aeiouy][aeiouy][^aeiouy]/).size
-  end
-
   describe '#haiku' do
     describe 'errors' do
       context 'when provided with a too long word (ie. exceeding 7 syllables)' do
@@ -50,6 +38,7 @@ describe Hiq do
 
         it 'follows 5-7-5 syllable composition' do
           lines = Hiq.haiku(%w[apple waffle]).split("\n").map { |l| l.split(' ') }
+
           syllable_composition = lines.map { |l| l.map { |w| syllables(w) }.sum }
 
           expect(syllable_composition).to eql([5, 7, 5])
