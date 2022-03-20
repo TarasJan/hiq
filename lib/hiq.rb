@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'version'
-require 'syllabizable'
-require 'exceptions'
-require 'domain/word_checker'
-require 'domain/line_composer'
-require 'haiku'
+require 'hiq/version'
+require 'hiq/syllabizable'
+require 'hiq/exceptions'
+require 'hiq/domain/word_checker'
+require 'hiq/domain/line_composer'
+require 'hiq/haiku'
 
 # haiku main module
 module Hiq
