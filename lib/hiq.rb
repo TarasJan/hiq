@@ -9,7 +9,7 @@ require 'haiku'
 
 # haiku main module
 module Hiq
-  def self.haiku(words)
+  def self.haiku(*words)
     Haiku.new(words).to_s
   end
 end

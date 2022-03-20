@@ -4,27 +4,27 @@ require 'spec_helper'
 
 describe Hiq do
   it 'has the current version' do
-    expect(Hiq::VERSION).to eql('0.0.1')
+    expect(Hiq::VERSION).to eql('0.0.2')
   end
 
   describe '#haiku' do
     describe 'errors' do
       context 'when provided with a too long word (ie. exceeding 7 syllables)' do
         it 'raises WordLengthError' do
-          expect { Hiq.haiku(['nonheterosexuality']) }.to raise_error(Hiq::WordTooLongError)
+          expect { Hiq.haiku('nonheterosexuality') }.to raise_error(Hiq::WordTooLongError)
         end
       end
 
       context 'when provided with a two words exceeding 5 syllables' do
         it 'raises WordsCompositionError' do
-          expect { Hiq.haiku(%w[adaptability heterosexuality]) }.to raise_error(Hiq::WordsCompositionError)
+          expect { Hiq.haiku('adaptability', 'heterosexuality') }.to raise_error(Hiq::WordsCompositionError)
         end
       end
 
       context 'when there are more that 3 words' do
         it 'raises TooManyWordsError' do
           expect do
-            Hiq.haiku(%w[friend calamity ability apple])
+            Hiq.haiku('friend', 'calamity', 'ability', 'apple')
           end.to raise_error(Hiq::TooManyWordsError)
         end
       end
@@ -33,11 +33,11 @@ describe Hiq do
     describe 'haikus properties' do
       context 'simple haiku' do
         it 'has three lines' do
-          expect(Hiq.haiku(%w[apple waffle]).count("\n")).to eql(2)
+          expect(Hiq.haiku('apple', 'waffle').count("\n")).to eql(2)
         end
 
         it 'follows 5-7-5 syllable composition' do
-          lines = Hiq.haiku(%w[apple waffle]).split("\n").map { |l| l.split(' ') }
+          lines = Hiq.haiku('apple', 'waffle').split("\n").map { |l| l.split(' ') }
 
           syllable_composition = lines.map { |l| l.map { |w| syllables(w) }.sum }
 

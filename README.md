@@ -22,7 +22,7 @@ Or install it yourself as:
 
 
 ```ruby
->  puts Hiq.haiku(['root', 'beer'])
+>  puts Hiq.haiku('root', 'beer')
 root of my joy fade
 the sad facade of beer torn                                              
 tears flow in the rain 
