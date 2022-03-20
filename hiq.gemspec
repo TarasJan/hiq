@@ -8,8 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Jan Taras']
   s.email       = 'jan.taras29@gmail.com'
   s.files       = ['lib/hiq.rb']
-  s.homepage    =
-    'https://rubygems.org/gems/hiq'
+  s.homepage    = 'https://github.com/TarasJan/hiq'
   s.license = 'MIT'
   s.required_ruby_version = '>= 2.6.0'
 
