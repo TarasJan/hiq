@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.required_ruby_version = '>= 2.6.0'
 
-  s.add_development_dependency 'irb'
-  s.add_development_dependency 'byebug'
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'byebug', '~> 11.1.0'
+  s.add_development_dependency 'irb', '~> 1.4.1'
+  s.add_development_dependency 'pry', '~> 0.14.1'
+  s.add_development_dependency 'rspec', '~> 3.11.0'
+  s.add_development_dependency 'rubocop', '~> 1.26.0'
 end

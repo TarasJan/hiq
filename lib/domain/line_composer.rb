@@ -36,19 +36,19 @@ module Hiq
 
     def interpolated_fillers
       {
-        5 => { 
+        5 => {
           1 => 'the X',
           2 => 'ghastly X',
           3 => 'shadow of X',
-          4 => 'X of my joy fade' 
+          4 => 'X of my joy fade'
         },
-        7 => { 
+        7 => {
           1 => 'a X',
           2 => 'the pale X',
           3 => 'X in silence',
           4 => 'X ends the autumn',
           5 => 'A spark of X above',
-          6 => 'the sad facade of X torn' 
+          6 => 'the sad facade of X torn'
         }
       }
     end

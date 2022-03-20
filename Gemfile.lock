@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hiq (0.0.1)
+    hiq (0.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -56,12 +56,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
+  byebug (~> 11.1.0)
   hiq!
-  irb
-  pry
-  rspec
-  rubocop
+  irb (~> 1.4.1)
+  pry (~> 0.14.1)
+  rspec (~> 3.11.0)
+  rubocop (~> 1.26.0)
 
 BUNDLED WITH
    1.17.2
