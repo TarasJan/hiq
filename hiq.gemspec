@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'hiq'
-  s.version     = '0.0.1'
+  s.version     = '0.2.0'
   s.summary     = 'Hiq - a Haiku generator'
   s.description = 'A simple Haiku generator gem'
   s.authors     = ['Jan Taras']
