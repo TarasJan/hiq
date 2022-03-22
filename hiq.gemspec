@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-lib = File.expand_path("../lib/", __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
-require "hiq/version"
+require 'hiq/version'
 
 Gem::Specification.new do |s|
   s.name = 'hiq'
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.files       = Dir['lib/**/*']
   s.homepage    = 'https://github.com/TarasJan/hiq'
   s.license = 'MIT'
-  s.require_paths = %w(lib)
+  s.require_paths = %w[lib]
   s.required_ruby_version = '>= 2.6.0'
 
   s.add_development_dependency 'byebug', '~> 11.1.0'

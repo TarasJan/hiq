@@ -20,8 +20,10 @@ module Hiq
     def haiku_lines
       WordChecker.validate!(words)
 
+      library = FillerLibrary.new
+
       [5, 7, 5].zip(line_templates).map do |syllabes, line|
-        LineComposer.call(line, target_syllable_length: syllabes)
+        LineComposer.call(line, target_syllable_length: syllabes, library: library)
       end
     end
 
