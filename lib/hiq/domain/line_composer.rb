@@ -32,7 +32,7 @@ module Hiq
     def filled_line
       return [library.get_const_filler(target_syllable_length)] if line.empty?
 
-      [library.get_interpolated_filler(target_syllable_length, syllable_gap_size).gsub('X', line.first)]
+      [library.get_interpolated_filler(syllable_gap_size).gsub('X', line.first)]
     end
   end
 end

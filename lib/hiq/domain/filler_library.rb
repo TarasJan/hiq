@@ -5,27 +5,19 @@ module Hiq
   class FillerLibrary
     def self.interpolated_fillers
       {
-        5 => {
-          1 => 'the X',
-          2 => 'ghastly X',
-          3 => 'shadow of X',
-          4 => 'X of my joy fade'
-        },
-        7 => {
-          1 => 'a X',
-          2 => 'the pale X',
-          3 => 'X in silence',
-          4 => 'X ends the autumn',
-          5 => 'A spark of X above',
-          6 => 'the sad facade of X torn'
-        }
+        1 => ['the X', 'a X'],
+        2 => ['ghastly X', 'the pale X'],
+        3 => ['shadow of X', 'X in silence'],
+        4 => ['X of my joy fade', 'X ends the autumn'],
+        5 => ['A spark of X above'],
+        6 => ['the sad facade of X torn']
       }
     end
 
     def self.fillers
       {
-        5 => ['empty riverside', 'tears flow in the rain', 'cheerful summer\'s charm'].shuffle,
-        7 => ['the vain wind of summer blows', 'gentle breeze upon a mountain', 'a frog jumps into a well'].shuffle
+        5 => ['empty riverside', 'tears flow in the rain', 'cheerful summer\'s charm'],
+        7 => ['the vain wind of summer blows', 'gentle breeze upon a mountain', 'a frog jumps into a well']
       }
     end
 
@@ -36,12 +28,12 @@ module Hiq
       @cfillers = FillerLibrary.fillers
     end
 
-    def get_const_filler(syllable_length)
-      cfillers[syllable_length].shift
+    def get_const_filler(filler_length)
+      cfillers[filler_length].delete(cfillers[filler_length].sample)
     end
 
-    def get_interpolated_filler(syllable_length, gap_size)
-      ifillers[syllable_length][gap_size]
+    def get_interpolated_filler(filler_length)
+      ifillers[filler_length].delete(ifillers[filler_length].sample)
     end
   end
 end

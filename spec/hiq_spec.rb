@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Hiq do
   it 'has the current version' do
-    expect(Hiq::VERSION).to eql('0.2.2')
+    expect(Hiq::VERSION).to eql('0.2.3')
   end
 
   describe '#haiku' do
@@ -42,6 +42,14 @@ describe Hiq do
           syllable_composition = lines.map { |l| l.map { |w| syllables(w) }.sum }
 
           expect(syllable_composition).to eql([5, 7, 5])
+        end
+      end
+
+      context 'multiple haiku calls' do
+        let(:haikus) { Array.new(5) { Hiq.haiku('mug', 'moment') } }
+
+        it 'can result in a different haiku for the same params' do
+          expect(haikus.uniq.size).to be > 1
         end
       end
     end
