@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Hiq do
   it 'has the current version' do
-    expect(Hiq::VERSION).to eql('0.3.0')
+    expect(Hiq::VERSION).to eql('0.3.1')
   end
 
   describe '#haiku' do

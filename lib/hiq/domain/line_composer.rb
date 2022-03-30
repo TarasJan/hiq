@@ -29,8 +29,12 @@ module Hiq
       target_syllable_length - line.map { |word| syllables(word) }.sum
     end
 
+    def vowelless_input?
+      syllable_gap_size == target_syllable_length
+    end
+
     def filled_line
-      return [library.get_const_filler(target_syllable_length)] if line.empty?
+      return [library.get_const_filler(target_syllable_length)] if line.empty? || vowelless_input?
 
       [library.get_interpolated_filler(syllable_gap_size).gsub('X', line.first)]
     end
