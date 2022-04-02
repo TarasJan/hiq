@@ -1,3 +1,7 @@
+# version 0.4.0
+
+* Added console functionality
+
 # version 0.3.1
 
 * Fix for vowelless input

@@ -23,12 +23,20 @@ Or install it yourself as:
 
 ## Usage
 
-
+### Inside Ruby Code
 ```ruby
 >  puts Hiq.haiku('root', 'beer')
 root of my joy fade
 the sad facade of beer torn                                              
 tears flow in the rain 
+```
+
+### As CLI Tool
+```bash
+> haiku mug moment
+the lines of mug
+A spark of moment above
+Valentine's Day
 ```
 
 ## Contributing

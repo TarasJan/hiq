@@ -11,10 +11,13 @@ Gem::Specification.new do |s|
   s.description = 'A simple Haiku generator gem'
   s.authors     = ['Jan Taras']
   s.email       = 'jan.taras29@gmail.com'
-  s.files       = Dir['lib/**/*']
+  s.files       = Dir['lib/**/*', 'bin/*']
+  s.bindir = 'bin'
+  s.executables << 'haiku'
   s.homepage    = 'https://github.com/TarasJan/hiq'
   s.license = 'MIT'
   s.require_paths = %w[lib]
+
   s.required_ruby_version = '>= 2.6.0'
 
   s.add_development_dependency 'byebug', '~> 11.1.0'
